@@ -1,0 +1,26 @@
+.form-control {
+    position: relative;
+    /* top: 15%; */
+    width: 100%;
+}
+
+.titleText {
+    position: relative;
+    margin-top: 5%;
+    margin-left: 40%;
+}
+
+.logInForm {
+    position: relative;
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.btn.btn-primary{
+    margin-left: 48%;
+}
+
+.register{
+    margin-left: 28%;
+}

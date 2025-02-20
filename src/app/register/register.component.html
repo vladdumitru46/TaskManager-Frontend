@@ -1,0 +1,33 @@
+<form class="logInForm">
+    <div class="row mb-3">
+        <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputName3" required [(ngModel)]="name" name="name">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputUsername3" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputUsername3" required [(ngModel)]="username" name="username">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" required [(ngModel)]="email" name="email">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" required [(ngModel)]="password" name="password">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputRetypePassword3" class="col-sm-2 col-form-label">Retype Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputRetypePassword3" required [(ngModel)]="retypePassword" name="retypePassword">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="register()">Register</button>
+</form>
