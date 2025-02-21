@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { RegisterService } from '../../app/service/register/register.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { RegisterService } from '../../service/register/register.service';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +23,7 @@ export class RegisterComponent {
 
   register() {
 
+    
     console.log(this.name)
 
     if (this.password === this.retypePassword) {

@@ -5,4 +5,9 @@ export class Constans {
     static populateProjectList: string = this.baseUrl + "/project/all";
     static getProjectByName: string = this.baseUrl + "/project?name=";
     static populateTaskList: string = this.baseUrl + "/task?projectName=";
+    static getByUniqueName: string = this.baseUrl + "/task/getByUniqueName?uniqueName=";
+    static getAllUsers: string = this.baseUrl + "/user/all";
+    static updateTask: string = this.baseUrl + "/task/update";
+    static getAllStatuses: string = this.baseUrl + "/task/statuses";
+
 }

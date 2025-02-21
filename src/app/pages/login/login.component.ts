@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../service/login/login.service';
 import { CommonModule } from '@angular/common';  
-import { routes } from '../app.routes';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from '../../service/login/login.service';
 
 @Component({
   selector: 'app-login',

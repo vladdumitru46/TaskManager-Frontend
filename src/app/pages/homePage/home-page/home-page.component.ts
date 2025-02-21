@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Project } from '../../data/Project';
-import { ProjectService } from '../../service/project/project.service';
 import { ToolbarComponent } from "../../toolbar/toolbar.component";
 import { ProjectCardComponent } from "../project-card/project-card.component";
 import { CommonModule } from '@angular/common';
+import { Project } from '../../../data/Project';
+import { ProjectService } from '../../../service/project/project.service';
 
 @Component({
   selector: 'app-home-page',

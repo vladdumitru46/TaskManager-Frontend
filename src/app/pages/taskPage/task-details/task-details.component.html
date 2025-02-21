@@ -1,0 +1,26 @@
+
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        <select *ngIf="task" [(ngModel)]="task.taskStatus" (change)="updateTask()">
+            <option *ngFor="let status of statuses" [value]="status" >{{ status }}</option>
+        </select>
+    </div>
+    
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Assignee: 
+        <input 
+          [(ngModel)]="assigneeName"
+          (input)="filterUsers()"
+          placeholder="{{task?.user?.name}}"
+        />
+        <ul *ngIf="filteredUsers.length > 0" class="suggestions">
+          <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+            {{ user.name }}
+          </li>
+        </ul>
+      </li>
+      <li class="list-group-item">Time spent: <p>{{task?.numberOfHoursSpent}}</p></li>
+      <li class="list-group-item">Time left: <p>{{task?.numberOfHoursRemaining}}</p></li>
+    </ul>
+</div>

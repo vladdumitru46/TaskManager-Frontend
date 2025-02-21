@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { Project } from '../../data/Project';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectService } from '../../service/project/project.service';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from "../../toolbar/toolbar.component";
 import { TaskTableComponent } from "../task-table/task-table.component";
-import { Task } from '../../data/Task';
-import { TaskService } from '../../service/task/task.service';
+import { Project } from '../../../data/Project';
+import { Task } from '../../../data/Task';
+import { ProjectService } from '../../../service/project/project.service';
+import { TaskService } from '../../../service/task/task.service';
+import { User } from '../../../data/User';
+import { UserService } from '../../../service/user/user.service';
 
 @Component({
   selector: 'app-projectpage',
@@ -19,14 +21,40 @@ export class ProjectpageComponent {
 
   project!: Project;
   taskList: Task[] = [];
+  userList: User[] = [];
+  statusesList: string[] = [];
 
 
-  constructor(private route: ActivatedRoute, private projectService: ProjectService, private taskService: TaskService) {
+  constructor(private route: ActivatedRoute, private projectService: ProjectService, private taskService: TaskService, private userService: UserService) {
     const projectName = this.route.snapshot.paramMap.get('name');
     if (projectName) {
       this.loadProject(projectName);
       this.populateTaskList(projectName);
+      this.getAllUsers();
+      this.getAllStatues();
     }
+  }
+  getAllStatues() {
+    this.taskService.getAllStatues().subscribe({
+      next: (response) => {
+        this.statusesList = response;
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
+
+
+  getAllUsers() {
+    this.userService.getAllUsers().subscribe({
+      next: (response) => {
+        this.userList = response;
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
   }
 
   loadProject(name: string) {

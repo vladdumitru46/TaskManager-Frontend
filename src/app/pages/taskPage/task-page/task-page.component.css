@@ -1,0 +1,21 @@
+.taskDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.descriptionArea {
+    width: 50%;
+    height: 50%;
+    margin-left: 20%;
+}
+
+app-task-details {
+    margin-left: auto;
+    margin-right: 2%;
+}
+
+.taskName {
+    margin-left: 20%;
+    margin-top: 2%;
+}
