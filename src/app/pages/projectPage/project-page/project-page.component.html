@@ -1,0 +1,6 @@
+<app-toolbar></app-toolbar>
+<div class="taskList">
+    <app-task-table *ngFor="let task of taskList" [name]="task.name" [uniqueName]="task.uniqueName"
+        [assigne]="task.user.name" [status]="task.taskStatus">
+    </app-task-table>
+</div>

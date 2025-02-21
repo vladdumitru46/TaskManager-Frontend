@@ -3,7 +3,8 @@
 <div class="projects" id="projectsId">
     <app-project-card 
         *ngFor="let project of projects" 
-        [title]="project.title" 
-        [description]="project.description">
+        [title]="project.name" 
+        [description]="project.description"
+        (projectClicked)="openProject(project)">
     </app-project-card>
 </div>

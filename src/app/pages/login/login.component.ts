@@ -16,7 +16,9 @@ export class LoginComponent {
   email!: string;
   password!: string;
 
-  constructor(private loginService: LoginService,  private router: Router) { }
+  constructor(private loginService: LoginService,  private router: Router) { 
+    this.checkAuth();
+  }
 
   login(): void {
     this.loginService.login(this.email, this.password).subscribe({
@@ -33,5 +35,12 @@ export class LoginComponent {
 
   register() {
     this.router.navigate(["/register"]);
+  }
+
+  checkAuth() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.router.navigate(['/home']);
+    }//TODO verify if token is expired
   }
 }
