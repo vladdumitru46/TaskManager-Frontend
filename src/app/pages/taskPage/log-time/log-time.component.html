@@ -1,0 +1,20 @@
+<!-- <button (click)="logTime()">Log Time</button> -->
+<table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Time</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let timeSpent of timeSpentList">
+        <td>{{timeSpent.user.name}}</td>
+        <td>{{timeSpent.logDate}}</td>
+        <td>{{timeSpent.description}}</td>
+        <td>{{timeSpent.logTime}}</td>
+        <td>...</td>
+      </tr>
+    </tbody>
+  </table>
+  

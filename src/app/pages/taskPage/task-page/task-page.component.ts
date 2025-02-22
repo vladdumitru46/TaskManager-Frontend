@@ -2,17 +2,18 @@ import { Component } from '@angular/core';
 import { ToolbarComponent } from "../../toolbar/toolbar.component";
 import { Task } from '../../../data/Task';
 import { TaskService } from '../../../service/task/task.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskDetailsComponent } from "../task-details/task-details.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../../data/User';
 import { UserService } from '../../../service/user/user.service';
+import { LogTimeComponent } from "../log-time/log-time.component";
 
 @Component({
   selector: 'app-task-page',
   standalone: true,
-  imports: [ToolbarComponent, TaskDetailsComponent, CommonModule, FormsModule],
+  imports: [ToolbarComponent, TaskDetailsComponent, CommonModule, FormsModule, LogTimeComponent],
   templateUrl: './task-page.component.html',
   styleUrl: './task-page.component.css'
 })
@@ -27,7 +28,8 @@ export class TaskPageComponent {
   userList: User[] = [];
   statusesList: string[] = [];
 
-  constructor(private route: ActivatedRoute, private taskService: TaskService, private userService: UserService) {
+  constructor(private router: Router, private route: ActivatedRoute, private taskService: TaskService, private userService: UserService) {
+    this.checkAuth();
     const uniqueName = this.route.snapshot.paramMap.get('uniqueName');
     if (uniqueName) {
       this.getTask(uniqueName);
@@ -72,25 +74,25 @@ export class TaskPageComponent {
   saveTaskName() {
     this.task.name = this.editedTaskName;
     this.updateTask();
-    this.isEditingName = false;  // Ascunde butoanele după salvare
+    this.isEditingName = false;  
     console.log("merge task name save");
   }
   
   cancelEditTaskName() {
     this.editedTaskName = this.task.name;
-    this.isEditingName = false;  // Ascunde butoanele după anulare
+    this.isEditingName = false;  
   }
   
   saveTaskDescription() {
     this.task.description = this.editedDescription;
     this.updateTask();
-    this.isEditingDescription = false;  // Ascunde butoanele după salvare
+    this.isEditingDescription = false;  
     console.log("merge task description save");
   }
   
   cancelTaskDescription() {
     this.editedDescription = this.task.description;
-    this.isEditingDescription = false;  // Ascunde butoanele după anulare
+    this.isEditingDescription = false;  
   }
   
 
@@ -102,6 +104,13 @@ export class TaskPageComponent {
         console.error(error);
       }
     });
+  }
+
+  checkAuth() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['/login']);
+    }//TODO verify if token is expired
   }
 }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from "../../toolbar/toolbar.component";
 import { TaskTableComponent } from "../task-table/task-table.component";
@@ -25,7 +25,8 @@ export class ProjectpageComponent {
   statusesList: string[] = [];
 
 
-  constructor(private route: ActivatedRoute, private projectService: ProjectService, private taskService: TaskService, private userService: UserService) {
+  constructor(private router: Router,private route: ActivatedRoute, private projectService: ProjectService, private taskService: TaskService, private userService: UserService) {
+    this.checkAuth();
     const projectName = this.route.snapshot.paramMap.get('name');
     if (projectName) {
       this.loadProject(projectName);
@@ -78,5 +79,12 @@ export class ProjectpageComponent {
         console.error(error);
       }
     });
+  }
+
+  checkAuth() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['/login']);
+    }//TODO verify if token is expired
   }
 }
