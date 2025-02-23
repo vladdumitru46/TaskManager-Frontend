@@ -1,7 +1,7 @@
 <app-toolbar></app-toolbar>
 
-<h2 class="taskName" *ngIf="!isEditingName" (click)="editTaskName()">
-    {{task?.name}}
+<h2 class="taskName" *ngIf="!isEditingName && task"  (click)="editTaskName()">
+    {{task.name}}
 </h2>
 
 <div *ngIf="isEditingName" class="edit-task-name">

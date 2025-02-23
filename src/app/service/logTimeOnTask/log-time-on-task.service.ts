@@ -61,13 +61,13 @@ export class LogTimeOnTaskService {
     });
   }
 
-   logTimeOnTask(task: LogTimeOnTask, token: string): Observable<LogTimeOnTask> {
+   logTimeOnTask(description: string, logTime: number, taskId: number, logDate: Date, token: string): Observable<LogTimeOnTask> {
       let body = {
         token: token,
-        taskId: task.task.id,
-        description: task.description,
-        numberOfHours: task.logTime,
-        date: task.logDate
+        taskId: taskId,
+        description: description,
+        numberOfHours: logTime,
+        date: logDate
       };
       return new Observable((observer) => {
         fetch(Constans.addLogForTask, {

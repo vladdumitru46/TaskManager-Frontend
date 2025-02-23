@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { LogTimeOnTask } from '../../../data/LogTimeOnTask';
 import { LogTimeOnTaskService } from '../../../service/logTimeOnTask/log-time-on-task.service';
 import { Task } from '../../../data/Task';
+import { LogTimeFormularComponent } from '../log-time-formular/log-time-formular.component';
 
 @Component({
   selector: 'app-log-time',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, LogTimeFormularComponent],
   templateUrl: './log-time.component.html',
   styleUrl: './log-time.component.css'
 })
 export class LogTimeComponent {
   @Input() task!:Task;
   timeSpentList: LogTimeOnTask[] = [];
+  showLogTimePopup = false;
 
   constructor(private logTimeOnTaskService: LogTimeOnTaskService) {
     let token: string | null = localStorage.getItem("token");
@@ -33,16 +35,13 @@ export class LogTimeComponent {
     });
   }
 
-  //TODO
+  openLogTimePage() {
+    this.showLogTimePopup = true;
+    console.log("showing pop up..." + this.showLogTimePopup)
+  }
 
-  // logTime(){
-  //   this.logTimeOnTaskService.logTimeOnTask().subscribe({
-  //     next: (response) => {
-  //       this.timeSpentList = response;
-  //     },
-  //     error: (error) => {
-  //       console.error(error);
-  //     }
-  //   });
-  // }
+  closeLogTimePage() {
+    this.showLogTimePopup = false;
+  }
+
 }

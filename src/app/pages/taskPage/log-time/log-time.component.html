@@ -1,20 +1,26 @@
-<!-- <button (click)="logTime()">Log Time</button> -->
+<button (click)="openLogTimePage()">Log Time</button>
+
 <table class="table">
-    <thead>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Time</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let timeSpent of timeSpentList">
-        <td>{{timeSpent.user.name}}</td>
-        <td>{{timeSpent.logDate}}</td>
-        <td>{{timeSpent.description}}</td>
-        <td>{{timeSpent.logTime}}</td>
-        <td>...</td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <thead>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Time</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let timeSpent of timeSpentList">
+      <td>{{ timeSpent.user.name }}</td>
+      <td>{{ timeSpent.logDate }}</td>
+      <td>{{ timeSpent.description }}</td>
+      <td>{{ timeSpent.logTime }}</td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="modal-background" [hidden]="!showLogTimePopup">
+  <div class="modal">
+    <app-log-time-formular *ngIf="task" [task]="task" (close)="closeLogTimePage()"></app-log-time-formular>
+  </div>
+</div>

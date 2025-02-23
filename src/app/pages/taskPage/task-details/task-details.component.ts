@@ -15,7 +15,7 @@ import { TaskService } from '../../../service/task/task.service';
 })
 export class TaskDetailsComponent {
 
-  @Input() task!: Task;//TODO the upadates to the server, and the getting values for user and status list
+  @Input() task!: Task;
 
   @Input() statuses: string[] = ["In Progress", "Closed", "Complete", "OPEN"];
 
@@ -25,7 +25,8 @@ export class TaskDetailsComponent {
   assigneeName: string = '';
   selectedUser: any = null;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService) {
+  }
 
   filterUsers() {
     if (this.assigneeName.length > 0) {
