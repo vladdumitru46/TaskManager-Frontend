@@ -1,4 +1,4 @@
-<button (click)="openLogTimePage()">Log Time</button>
+<button class="logTimeButton" (click)="openLogTimePage()">Log Time</button>
 
 <table class="table">
   <thead>
@@ -19,8 +19,8 @@
   </tbody>
 </table>
 
-<div class="modal-background" [hidden]="!showLogTimePopup">
-  <div class="modal">
-    <app-log-time-formular *ngIf="task" [task]="task" (close)="closeLogTimePage()"></app-log-time-formular>
-  </div>
-</div>
+<!-- Modal
+<div *ngIf="isLogTimeModalOpen" class="modal">
+  <app-log-time-formular (closeModal)="closeLogTimePage()">
+  </app-log-time-formular>
+</div> -->

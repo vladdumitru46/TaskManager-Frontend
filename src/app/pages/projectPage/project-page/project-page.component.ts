@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from "../../toolbar/toolbar.component";
-import { TaskTableComponent } from "../task-table/task-table.component";
 import { Project } from '../../../data/Project';
 import { Task } from '../../../data/Task';
 import { ProjectService } from '../../../service/project/project.service';
 import { TaskService } from '../../../service/task/task.service';
 import { User } from '../../../data/User';
 import { UserService } from '../../../service/user/user.service';
+import { ProjectNavigationBarComponent } from "../project-navigation-bar/project-navigation-bar.component";
 
 @Component({
   selector: 'app-projectpage',
   standalone: true,
-  imports: [CommonModule, ToolbarComponent, TaskTableComponent],
+  imports: [CommonModule, ToolbarComponent, RouterModule, ProjectNavigationBarComponent],
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.css'
 })
@@ -25,7 +25,7 @@ export class ProjectpageComponent {
   statusesList: string[] = [];
 
 
-  constructor(private router: Router,private route: ActivatedRoute, private projectService: ProjectService, private taskService: TaskService, private userService: UserService) {
+  constructor(private router: Router, private route: ActivatedRoute, private projectService: ProjectService, private taskService: TaskService, private userService: UserService) {
     this.checkAuth();
     const projectName = this.route.snapshot.paramMap.get('name');
     if (projectName) {
@@ -80,6 +80,7 @@ export class ProjectpageComponent {
       }
     });
   }
+
 
   checkAuth() {
     const token = localStorage.getItem('token');

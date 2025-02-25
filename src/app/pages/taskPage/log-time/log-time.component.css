@@ -1,0 +1,11 @@
+.table{
+  position: relative;
+  margin-left: 20%;
+  margin-right: 15%;
+  width: 50%;
+}
+
+.logTimeButton{
+  position: relative;
+  margin-left: 60%;
+}

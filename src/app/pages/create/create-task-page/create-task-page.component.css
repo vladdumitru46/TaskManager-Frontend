@@ -1,0 +1,29 @@
+.modal {
+    position: fixed; /* Fixează modalul pe ecran */
+    top: 50%;
+    left: 50%;
+    display: block;
+    align-items: center;
+    justify-content: center; 
+  }
+
+  .suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    position: absolute;
+    background: white;
+    width: 200px;
+    z-index: 1000; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background: #f0f0f0;
+}

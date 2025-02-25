@@ -8,6 +8,7 @@ import { Constans } from '../../constans/Constans';
 })
 export class TaskService {
 
+
   constructor() { }
 
   populateTaskList(projectName: string): Observable<Task[]> {
@@ -111,9 +112,9 @@ export class TaskService {
             let error = await response.text();
             throw new Error(error);
           }
-          return response.json();
-        })
-        .then((data) => {
+          const text = await response.text();
+          const data = text ? JSON.parse(text) : null;
+
           observer.next(data);
           observer.complete();
         })
@@ -122,5 +123,38 @@ export class TaskService {
         });
     });
 
+  }
+
+  addTask(name: string, description: string, projectName: string, username: string, timeToComplete: number): Observable<Task> {
+    let body = {
+      name: name,
+      description: description,
+      projectName: projectName,
+      username: username,
+      numberOfHoursToComplete: timeToComplete
+    };
+    return new Observable((observer) => {
+      fetch(Constans.addTask, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      })
+        .then(async (response) => {
+          if (!response.ok) {
+            let error = await response.text();
+            throw new Error(error);
+          }
+          const text = await response.text();
+          const data = text ? JSON.parse(text) : null;
+
+          observer.next(data);
+          observer.complete();
+        })
+        .catch((error) => {
+          observer.error(error);
+        });
+    });
   }
 }

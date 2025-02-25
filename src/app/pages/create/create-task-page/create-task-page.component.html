@@ -1,0 +1,28 @@
+<div class="modal">
+    <div class="content">
+      <input type="text" [(ngModel)]="name" placeholder="Name">
+      <input type="text" [(ngModel)]="description" placeholder="Description">
+      
+      <input [(ngModel)]="project" (input)="filterProjects()" placeholder="Project"/>
+      <ul *ngIf="filteredProjects.length > 0" class="suggestions">
+        <li *ngFor="let pro of filteredProjects" (click)="selectProject(pro)">
+          {{ pro.name }}
+        </li>
+      </ul>
+  
+      <input [(ngModel)]="assigne" (input)="filterUsers()" placeholder="User" />
+      <ul *ngIf="filteredUsers.length > 0" class="suggestions">
+        <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+          {{ user.name }}
+        </li>
+      </ul>
+  
+      <input type="number" [(ngModel)]="numberOfHoursToComplete" placeholder="Time to complete">
+    </div>
+  
+    <div class="actions">
+      <button mat-button (click)="save()">Create</button>
+      <button mat-button (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+  

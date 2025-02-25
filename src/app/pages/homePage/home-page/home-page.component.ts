@@ -22,7 +22,7 @@ export class HomePageComponent {
   }
 
   populateProjectList() {
-    this.projectService.populateProjectList().subscribe({
+    this.projectService.getAllProjects().subscribe({
       next: (response) => {
         this.projects = response;
       },

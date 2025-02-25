@@ -1,0 +1,28 @@
+<app-toolbar></app-toolbar>
+<app-project-navigation-bar></app-project-navigation-bar>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let status of statusList">{{ status }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td *ngFor="let status of statusList"
+          class="task-column"
+          (dragover)="onDragOver($event, status)"
+          (drop)="onDrop($event, status)">
+          
+        <div *ngFor="let task of tasksByStatus[status]"
+             class="task-card"
+             draggable="true"
+             (dragstart)="onDragStart($event, task)"
+             (dragend)="onDragEnd($event)">
+          <app-task-card [task]="task"></app-task-card>
+        </div>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>

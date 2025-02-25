@@ -1,0 +1,41 @@
+<app-toolbar></app-toolbar>
+<input placeholder="{{username}}">
+<div class="date-picker-container">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" 
+           [ngModel]="startDate | date:'yyyy-MM-dd'" 
+           (ngModelChange)="updateStartDate($event)">
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" 
+           [ngModel]="endDate | date:'yyyy-MM-dd'" 
+           (ngModelChange)="updateEndDate($event)">
+
+    <button (click)="populateAllLoggedTimeForUserResponseList()">Get Logged Time</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th *ngFor="let day of days">{{ day }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let taskGroup of allLoggedTimeForUserResponse?.loggedTimeOnTaskPerDays">
+            <td class="task-column">
+                {{ taskGroup.task.name }}
+            </td>
+            <td *ngFor="let day of days">
+                {{ getTimeLoggedForDay(taskGroup, day) || 0 }} 
+            </td>
+        </tr>
+        <tr>
+            <td>Total Time: {{ allLoggedTimeForUserResponse?.totalTimeLogged }}</td>
+            <td *ngFor="let day of days">
+                {{ getTotalTimeForDay(day) || 0 }}
+            </td>
+        </tr>
+    </tbody>
+    
+</table>

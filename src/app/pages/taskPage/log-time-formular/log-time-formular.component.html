@@ -1,10 +1,13 @@
-<div class="modal-content">
-    <p>{{ task.name }}</p>
+<div class="modal">
+  <h2>{{ data.task.name }}</h2>
+  <div class = "content">
     <input type="text" [(ngModel)]="description" placeholder="Description">
     <input type="number" [(ngModel)]="numberOfHours" placeholder="Hours">
-    <input type="date" [(ngModel)]="date">
-    
-    <button (click)="logTime()">Log time</button>
-    <button (click)="cancel()">Cancel</button>
+    <input type="date" [ngModel]="date | date:'yyyy-MM-dd'" (ngModelChange)="date = $event">
   </div>
-  
+
+  <div class="actions">
+    <button mat-button (click)="logTime()">Log Time</button>
+    <button mat-button (click)="cancel()">Cancel</button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="modal">
+    <div class="content">
+      <input type="text" [(ngModel)]="name" placeholder="Name">
+      <input type="text" [(ngModel)]="description" placeholder="Description">
+      <input type="date" [(ngModel)]="endDate" placeholder="End Date">
+    </div>
+  
+    <div class="actions">
+      <button mat-button (click)="save()">Create</button>
+      <button mat-button (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+  

@@ -20,4 +20,4 @@
 
     <app-task-details [task]="task" [users]="userList" [statuses]="statusesList"></app-task-details>
 </div>
-<app-log-time [task]="task"></app-log-time>
+<app-log-time *ngIf="task"  [task]="task"></app-log-time>

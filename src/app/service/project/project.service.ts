@@ -10,7 +10,7 @@ export class ProjectService {
 
   constructor() { }
 
-  populateProjectList(): Observable<Project[]> {
+  getAllProjects(): Observable<Project[]> {
     return new Observable((observer) => {
       fetch(Constans.populateProjectList, {
         method: 'GET',
@@ -36,7 +36,7 @@ export class ProjectService {
 
   }
 
-  getProjectByName(name: string): Observable<Project>{
+  getProjectByName(name: string): Observable<Project> {
     return new Observable((observer) => {
       fetch(Constans.getProjectByName + name, {
         method: 'GET',
@@ -59,5 +59,36 @@ export class ProjectService {
           observer.error(error);
         });
     });
+  }
+  addPoject(name: string, description: string, endDate: Date) {
+    let body = {
+      name: name,
+      description: description,
+      endDate: endDate
+    };
+    return new Observable((observer) => {
+      fetch(Constans.addProject, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      })
+        .then(async (response) => {
+          if (!response.ok) {
+            let error = await response.text();
+            throw new Error(error);
+          }
+          const text = await response.text();
+          const data = text ? JSON.parse(text) : null;
+
+          observer.next(data);
+          observer.complete();
+        })
+        .catch((error) => {
+          observer.error(error);
+        });
+    });
+
   }
 }
