@@ -1,5 +1,7 @@
 <app-toolbar></app-toolbar>
 
+<h3> Projects </h3>
+<hr class="segment-line">
 <div class="projects" id="projectsId">
     <app-project-card 
         *ngFor="let project of projects" 
@@ -8,3 +10,4 @@
         (projectClicked)="openProject(project)">
     </app-project-card>
 </div>
+<hr class="segment-line">

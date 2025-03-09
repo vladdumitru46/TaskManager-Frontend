@@ -1,0 +1,17 @@
+.navbar {
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+}
+
+.navbar-brand,
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: #ffd700 !important;
+}
+
+.btn.btn-outline-success {
+    background-color: black;
+    color: white;
+}

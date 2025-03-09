@@ -1,23 +1,30 @@
 <app-toolbar></app-toolbar>
 
-<h2 class="taskName" *ngIf="!isEditingName && task"  (click)="editTaskName()">
+@if(!isEditingName && task){
+<h2 class="taskName" (click)="editTaskName()">
     {{task.name}}
 </h2>
+}
 
-<div *ngIf="isEditingName" class="edit-task-name">
+@if(isEditingName){
+<div class="edit-task-name">
     <input [(ngModel)]="editedTaskName" />
     <button (click)="saveTaskName()">✔️</button>
     <button (click)="cancelEditTaskName()">❌</button>
 </div>
+}
 
 <div class="taskDetails">
-    <textarea class="descriptionArea" [(ngModel)]="editedDescription" (input)="isEditingDescription = true">
+    <div class="taskContent">
+        <div class="textArea">
+            <textarea class="descriptionArea" [(ngModel)]="editedDescription" (input)="isEditingDescription = true">
     </textarea>
-    <div *ngIf="isEditingDescription" class="description-buttons">
-        <button (click)="saveTaskDescription()">Save</button>
-        <button (click)="cancelTaskDescription()">Cancel</button>
+        </div>
+        <div *ngIf="isEditingDescription" class="description-buttons">
+            <button (click)="saveTaskDescription()">Save</button>
+            <button (click)="cancelTaskDescription()">Cancel</button>
+        </div>
+        <app-log-time *ngIf="task" [task]="task"></app-log-time>
     </div>
-
     <app-task-details [task]="task" [users]="userList" [statuses]="statusesList"></app-task-details>
 </div>
-<app-log-time *ngIf="task"  [task]="task"></app-log-time>

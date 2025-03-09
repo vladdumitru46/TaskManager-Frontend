@@ -26,12 +26,12 @@
             <td class="task-column">
                 {{ taskGroup.task.name }}
             </td>
-            <td *ngFor="let day of days">
+            <td *ngFor="let day of days" (click) = "getLogDetails(taskGroup)">
                 {{ getTimeLoggedForDay(taskGroup, day) || 0 }} 
             </td>
         </tr>
         <tr>
-            <td>Total Time: {{ allLoggedTimeForUserResponse?.totalTimeLogged }}</td>
+            <td>Total Time: {{ allLoggedTimeForUserResponse.totalTimeLogged }}</td>
             <td *ngFor="let day of days">
                 {{ getTotalTimeForDay(day) || 0 }}
             </td>

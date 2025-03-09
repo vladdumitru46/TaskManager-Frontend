@@ -1,23 +1,27 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    <select *ngIf="task" [(ngModel)]="task.taskStatus" (change)="updateTask()">
-      <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+<div class="card modern-card">
+  <div class="card-header modern-header">
+    <select *ngIf="task()" [(ngModel)]="task().taskStatus" (change)="updateTask()" class="modern-select">
+      <option *ngFor="let status of statuses()" [value]="status">{{ status }}</option>
     </select>
   </div>
 
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">
+    <li class="list-group-item modern-list-item">
       Assignee:
-      <input *ngIf="task?.user" [(ngModel)]="assigneeName" (input)="filterUsers()" placeholder="{{task?.user?.name}}" />
-      <ul *ngIf="filteredUsers.length > 0" class="suggestions">
-        <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+      <input *ngIf="task()?.user" [(ngModel)]="assigneeName" (input)="filterUsers()" placeholder="{{task().user.name}}" class="modern-input" />
+      <ul *ngIf="filteredUsers.length > 0" class="suggestions modern-suggestions">
+        <li *ngFor="let user of filteredUsers" (click)="selectUser(user)" class="modern-suggestion-item">
           {{ user.name }}
         </li>
       </ul>
     </li>
-    <li class="list-group-item">Time spent: <p *ngIf="task">{{task.numberOfHoursSpent}}</p>
+    <li class="list-group-item modern-list-item">
+      Time spent:
+      <p *ngIf="task()" class="modern-paragraph">{{task().numberOfHoursSpent}}</p>
     </li>
-    <li class="list-group-item">Time left: <p *ngIf="task">{{task.numberOfHoursRemaining}}</p>
+    <li class="list-group-item modern-list-item">
+      Time left:
+      <p *ngIf="task()" class="modern-paragraph">{{task().numberOfHoursRemaining}}</p>
     </li>
   </ul>
 </div>

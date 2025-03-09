@@ -1,29 +1,88 @@
+/* Stilizarea modalului */
 .modal {
-    position: fixed; /* Fixează modalul pe ecran */
+    position: fixed;
     top: 50%;
     left: 50%;
-    display: block;
+    transform: translate(-50%, -50%);
+    width: 80%; 
+    max-width: 600px; 
+    height: 51%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #0077b6, #00b4d8);
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: space-between;
   }
-
-  .suggestions {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ccc;
-    position: absolute;
-    background: white;
-    width: 200px;
-    z-index: 1000; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.suggestions li {
-    padding: 8px;
+  
+  .modal-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .modal-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .modal-body input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    transition: border 0.2s ease-in-out;
+  }
+  
+  .modal-body input:focus {
+    border-color: #4A90E2; 
+    outline: none;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .modal-actions button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-}
-
-.suggestions li:hover {
-    background: #f0f0f0;
-}
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .save-button {
+    background-color: #4A90E2;
+    color: white;
+  }
+  
+  .save-button:hover {
+    background-color: #357ABD;
+  }
+  
+  .cancel-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background-color: #e53935;
+  }
+  

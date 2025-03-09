@@ -1,0 +1,50 @@
+.modern-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #f9f9f9, #ececec);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modern-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  
+  .project-button {
+    background: #0077b6;
+    color: #ffffff;
+  }
+  
+  .project-button:hover {
+    background: #005f9e;
+    transform: scale(1.05);
+  }
+  
+  .task-button {
+    background: #48bb78;
+    color: #ffffff;
+  }
+  
+  .task-button:hover {
+    background: #38a169;
+    transform: scale(1.05);
+  }
+  
+  .close-button {
+    background: #e53e3e;
+    color: #ffffff;
+  }
+  
+  .close-button:hover {
+    background: #c53030;
+    transform: scale(1.05);
+  }
+  

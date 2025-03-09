@@ -1,6 +1,72 @@
-.taskList{
-    position: relative;
-    margin-right: 20%;
-    margin-left: 12%;
-    margin-top: 5%;
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px; 
+}
+
+
+.taskList {
+    flex: 2;
+    margin-top: 2%;
+    overflow-x: auto;
+    margin-right: 10%;
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; 
+    border: none; 
+}
+
+tr {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; 
+}
+
+td,
+th {
+    padding: 15px; 
+    text-align: left; 
+    
+}
+
+thead{
+    background: linear-gradient(135deg, #0077b6, #00b4d8); 
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase; 
+    border-radius: 5px 5px 0 0;
+}
+
+tbody tr {
+    background: #ffffff; 
+    color: #333; 
+    
+}
+
+tbody tr:hover {
+    background: #e3f2fd;
+    transform: scale(1.01); 
+    transition: all 0.2s ease-in-out;
+}
+
+tbody td {
+    border-bottom: 1px solid #ddd; 
+}
+
+tbody a {
+    color: #0077b6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+tbody a:hover {
+    color: #00b4d8; 
+    text-decoration: underline;
 }

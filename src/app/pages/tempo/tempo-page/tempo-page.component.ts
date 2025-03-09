@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LogTimeOnTaskService } from '../../../service/logTimeOnTask/log-time-on-task.service';
 import { UserService } from '../../../service/user/user.service';
 import { User } from '../../../data/User';
+import { LoggedTimeOnTaskPerDay } from '../../../data/LoggedTimeOnTaskPerDay';
 
 @Component({
   selector: 'app-tempo-page',
@@ -50,7 +51,7 @@ export class TempoPageComponent implements OnInit {
     }
   }
 
-  getTimeLoggedForDay(taskGroup: any, day: string): number {
+  getTimeLoggedForDay(taskGroup: LoggedTimeOnTaskPerDay, day: string): number {
     let loggedDay = taskGroup.day;
     let dayName = new Date(loggedDay).toLocaleDateString('en-US', { weekday: 'long' });
 
@@ -58,7 +59,7 @@ export class TempoPageComponent implements OnInit {
   }
 
   getTotalTimeForDay(day: string): number {
-    let totalDay = this.allLoggedTimeForUserResponse?.totalLoggedTimeOnTaskPerDays.find(d =>
+    let totalDay = this.allLoggedTimeForUserResponse.totalLoggedTimeOnTaskPerDays.find(d =>
       new Date(d.date).toLocaleDateString('en-US', { weekday: 'long' }) === day
     );
 
@@ -124,5 +125,9 @@ export class TempoPageComponent implements OnInit {
         console.error(error);
       }
     });
+  }
+
+  getLogDetails(taskGroup: LoggedTimeOnTaskPerDay){
+      
   }
 }

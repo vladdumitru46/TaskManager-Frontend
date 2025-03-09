@@ -1,13 +1,16 @@
 <div class="modal">
-    <div class="content">
-      <input type="text" [(ngModel)]="name" placeholder="Name">
-      <input type="text" [(ngModel)]="description" placeholder="Description">
-      <input type="date" [(ngModel)]="endDate" placeholder="End Date">
+  <div class="modal-content">
+    <h2 class="modal-header">Create New Project</h2>
+    <div class="modal-body">
+      <input type="text" [(ngModel)]="name" placeholder="Name" class="modern-input">
+      <input type="text" [(ngModel)]="description" placeholder="Description" class="modern-input">
+      <p>Estimated end date</p>
+      <input type="date" [(ngModel)]="endDate" placeholder="End Date" class="modern-input">
     </div>
-  
-    <div class="actions">
-      <button mat-button (click)="save()">Create</button>
-      <button mat-button (click)="cancel()">Cancel</button>
+
+    <div class="modal-actions">
+      <button mat-button class="modern-button save-button" (click)="save()">Create</button>
+      <button mat-button class="modern-button cancel-button" (click)="cancel()">Cancel</button>
     </div>
   </div>
-  
+</div>

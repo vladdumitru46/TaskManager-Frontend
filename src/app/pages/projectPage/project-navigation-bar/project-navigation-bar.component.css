@@ -1,0 +1,24 @@
+.nav{
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    width: 150px;
+    height: 500px;
+    
+    flex: 1;
+    color: #fff; 
+    padding: 15px;
+    border-radius: 5px; 
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link{
+    color: white;
+    font-size: 20px;
+}
+
+.nav-link.active{
+    color: orange;
+}
+
+.nav-link:hover{
+    color: orange;
+}

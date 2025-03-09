@@ -1,14 +1,28 @@
+
 .projects {
     position: relative;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-left: 5%;
     height: 50%;
     display: flex;
-    gap: 10%;
-    overflow-x: auto; 
+    gap: 5%;
+    overflow-x: auto;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
 }
+
+h3{
+    margin-top: 3%;
+    margin-left: 5%;
+    color: white;
+}
+.segment-line {
+    border: none;        
+    height: 4px;          
+    background-color: white; 
+    margin-left: 5%;
+    margin-right: 5%;        
+  }
 
 /* .projects::-webkit-scrollbar {
     height: 8px;

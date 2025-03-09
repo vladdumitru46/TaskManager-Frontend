@@ -1,0 +1,67 @@
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    flex: 2;
+    margin-top: 2%;
+    overflow-x: auto;
+    margin-right: 10%;
+    background: linear-gradient(135deg, #ffffff, #e3f2fd);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: #343a40;
+    border: 1px solid #333;
+    width: calc(100% / 4);
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #ffffff; 
+}
+
+thead {
+    font-weight: bold;
+    background: linear-gradient(135deg, #0077b6, #023e8a); 
+}
+
+td {
+    padding: 15px;
+    background: #ffffff;
+    color: #343a40; 
+}
+
+
+.task-card {
+    background: linear-gradient(135deg, #0288d1, #26c6da); 
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+}
+

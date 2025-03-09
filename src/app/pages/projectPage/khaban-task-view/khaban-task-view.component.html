@@ -1,11 +1,13 @@
 <app-toolbar></app-toolbar>
+
+<div class = "content">
 <app-project-navigation-bar></app-project-navigation-bar>
 
 <table class="table">
   <thead>
-    <tr>
+    <!-- <tr> -->
       <th *ngFor="let status of statusList">{{ status }}</th>
-    </tr>
+    <!-- </tr> -->
   </thead>
   <tbody>
     <tr>
@@ -26,3 +28,5 @@
     </tr>
   </tbody>
 </table>
+</div>
+

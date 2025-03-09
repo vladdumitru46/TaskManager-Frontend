@@ -1,11 +1,65 @@
-.table{
-  position: relative;
-  margin-left: 20%;
-  margin-right: 15%;
-  width: 50%;
+.table {
+  margin-top: 3%;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.logTimeButton{
-  position: relative;
-  margin-left: 60%;
+tr {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+tr:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+td, th {
+  padding: 15px;
+  text-align: left;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  /* border-radius: 5px; */
+}
+
+thead {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px 10px 0 0;
+  font-size: 1.1rem;
+  padding: 10px;
+}
+
+tbody{
+  background: #ffffff;
+  color: #333;
+  border-radius: 10px;
+  transition: background 0.2s ease-in-out;
+}
+
+tbody tr:hover {
+  background: #e3f2fd;
+}
+
+.logTimeButton {
+  background: #0077b6;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.logTimeButton:hover {
+  background: #005f9e;
 }
